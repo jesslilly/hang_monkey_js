@@ -1,0 +1,222 @@
+
+
+<head>
+<title>SparkyLand: Hang Monkey - Hang Man Game</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="none">
+<!--Begin Hang Monkey Scripts-->
+<SCRIPT LANGUAGE="JAVASCRIPT" src="javascript/change-to-night.js"></SCRIPT>
+<SCRIPT LANGUAGE="JAVASCRIPT" src="javascript/hangman-data.js"></SCRIPT>
+<SCRIPT LANGUAGE="JAVASCRIPT" src="javascript/hangman.js"></SCRIPT>
+<SCRIPT language="JAVASCRIPT" src="javascript/music.js"></SCRIPT>
+<SCRIPT language="JAVASCRIPT">
+<!--
+// Preload images does not appear to be working in the header or in separate scripts files, so i'm trying it here.
+var greenOImage = new Image();
+greenOImage.src = "hangman-images/greenO.gif";
+var redXImage = new Image();
+redXImage.src = "hangman-images/redX.gif";
+var clearImage = new Image();
+clearImage.src = "hangman-images/clear-pixel.gif";
+// -->
+</script>
+<!--Begin Hang Monkey Scripts-->
+</head>
+
+<body bgcolor="#EAF3D8" text="#824E00" topmargin="0" leftmargin="0">
+
+
+<!--Begin Hang Monkey-->
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+if (ie4)
+	document.write("<BGSOUND id=\"bgMusicID\" LOOP=-1 SRC=\"music/Town.mid\">");
+if (ns4||ns3)
+{
+	document.write("<EMBED NAME=\"bgMusic\" SRC=\"music/Town.mid\" LOOP=TRUE AUTOSTART=TRUE HIDDEN=TRUE MASTERSOUND>");
+}
+// -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"440\">");
+document.write("<tr><td width=\"440\" valign=\"bottom\" background=\"" + sky2 + "\">");
+// -->
+</SCRIPT>
+      <h1 style="margin-top: 0; margin-bottom: 0" align="left">&nbsp;<img
+      border="0" src="hangman-images/monkeyhead.gif" width="44" height="31"><b><font
+      face="Franklin Gothic Demi Cond">&nbsp;Hang Monkey</font></b></h1>
+<p style="margin-top: 0; margin-bottom: 0" align="left"><b><font
+      face="Franklin Gothic Demi Cond">&nbsp;</font></b></p>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("</td></tr></table>");
+// -->
+</SCRIPT>
+
+<table border="0" cellpadding="0" cellspacing="0" width="440">
+  <tr>
+    <td>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("</td>")
+document.write("      <td width=\"240\" height=\"200\" valign=\"bottom\" background=\"" + sky2 + "\">");
+// -->
+</SCRIPT>
+      <img name="hangmanImage" border="0" src="hangman-images/hang-monkey0.gif" width="140" height="200"><SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("</td>")
+document.write("      <td>")
+// -->
+</SCRIPT>
+    </td>
+    <td>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("</td>")
+document.write("      <td width=\"200\" height=\"200\" valign=\"bottom\" background=\"" + sky2 + "\">");
+// -->
+</SCRIPT>
+      <form name="statsForm">
+        <input type="text" name="wordNumber" value="..." size="29" readonly> <textarea
+        name="score" readonly cols="24" rows="8" wrap="off"></textarea>
+      </form>
+      <SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+document.write("</td>")
+document.write("      <td>")
+// -->
+</SCRIPT>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="440">
+  <tr>
+    <td bgcolor="#00FF33">
+      <form name="hangman">
+        <input type="text" name="answer" value="Click the button to begin."
+        onkeydown="return false;" size="30"> <input type="button" name="newGame"
+        value="Skip Word" onclick="newGame2()">
+		<a href="javascript:toggleMusic('music/Town.mid')">
+		<img name="speaker" src="hangman-images/speaker.gif" border="0" width="20" height="20"></a>
+      </form>
+      <p style="margin-top: 0; margin-bottom: 0" align="left"><b><font
+      face="Franklin Gothic Demi Cond"><br>
+      </font></b></td>
+  </tr>
+</table>
+<b><font
+      face="Franklin Gothic Demi Cond">Choose a Letter:
+      </font></b>
+<br>
+<a name="pick-a-letter"></a>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="1" background="hangman-images/A.gif"><a
+      onclick="javascript:pickLetter('A')"><img name="A" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/E.gif"><a
+      onclick="javascript:pickLetter('E')"><img name="E" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/I.gif"><a
+      onclick="javascript:pickLetter('I')"><img name="I" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/O.gif"><a
+      onclick="javascript:pickLetter('O')"><img name="O" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/U.gif"><a
+      onclick="javascript:pickLetter('U')"><img name="U" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1"><img border="0" src="hangman-images/clear-pixel.gif"
+      width="25" height="25"></td>
+    <td width="1" background="hangman-images/L.gif"><a
+      onclick="javascript:pickLetter('L')"><img name="L" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/N.gif"><a
+      onclick="javascript:pickLetter('N')"><img name="N" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/R.gif"><a
+      onclick="javascript:pickLetter('R')"><img name="R" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/S.gif"><a
+      onclick="javascript:pickLetter('S')"><img name="S" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/T.gif"><a
+      onclick="javascript:pickLetter('T')"><img name="T" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+  </tr>
+  <tr>
+    <td width="1"><img border="0" src="hangman-images/clear-pixel.gif"
+      width="25" height="5"></td>
+  </tr>
+  <tr>
+    <td width="1" background="hangman-images/B.gif"><a
+      onclick="javascript:pickLetter('B')"><img name="B" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/C.gif"><a
+      onclick="javascript:pickLetter('C')"><img name="C" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/D.gif"><a
+      onclick="javascript:pickLetter('D')"><img name="D" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/F.gif"><a
+      onclick="javascript:pickLetter('F')"><img name="F" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/G.gif"><a
+      onclick="javascript:pickLetter('G')"><img name="G" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/H.gif"><a
+      onclick="javascript:pickLetter('H')"><img name="H" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/K.gif"><a
+      onclick="javascript:pickLetter('K')"><img name="K" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/M.gif"><a
+      onclick="javascript:pickLetter('M')"><img name="M" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/P.gif"><a
+      onclick="javascript:pickLetter('P')"><img name="P" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1"><img border="0" src="hangman-images/clear-pixel.gif"
+      width="25" height="25"></td>
+    <td width="1" background="hangman-images/J.gif"><a
+      onclick="javascript:pickLetter('J')"><img name="J" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/Q.gif"><a
+      onclick="javascript:pickLetter('Q')"><img name="Q" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/V.gif"><a
+      onclick="javascript:pickLetter('V')"><img name="V" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/W.gif"><a
+      onclick="javascript:pickLetter('W')"><img name="W" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/X.gif"><a
+      onclick="javascript:pickLetter('X')"><img name="X" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/Y.gif"><a
+      onclick="javascript:pickLetter('Y')"><img name="Y" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+    <td width="1" background="hangman-images/Z.gif"><a
+      onclick="javascript:pickLetter('Z')"><img name="Z" border="0"
+      src="hangman-images/clear-pixel.gif" width="25" height="25"></a></td>
+  </tr>
+</table>
+<p style="margin-top: 0; margin-bottom: 0" align="left">&nbsp;
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+newGame();
+updateScore();
+// -->
+</SCRIPT>
+<!--cache images that aren't on the screen yet.-->
+ <img name="redX" border="0" src="hangman-images/redX.gif" width="1" height="1">
+<img name="greenO" border="0" src="hangman-images/greenO.gif" width="1"
+height="1"> <img name="clear-pixel" border="0"
+src="hangman-images/clear-pixel.gif" width="1" height="1">
+<!--End Hang Monkey-->
+
+</p>
+
+</body>
